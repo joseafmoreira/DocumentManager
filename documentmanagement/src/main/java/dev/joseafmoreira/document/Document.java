@@ -1,7 +1,5 @@
 package dev.joseafmoreira.document;
 
-import java.lang.annotation.Inherited;
-
 /**
  * <h2>
  * Document
