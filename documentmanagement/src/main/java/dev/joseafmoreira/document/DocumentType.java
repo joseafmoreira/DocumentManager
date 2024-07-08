@@ -5,7 +5,7 @@ package dev.joseafmoreira.document;
  * DocumentType
  * </h2>
  * <p>
- * The <code>DocumentType</code> represents the available document types.
+ * The <code>DocumentType</code> enum that represents the available document types.
  * </p>
  * <p>
  * Author: ESTG-FPOO-2122

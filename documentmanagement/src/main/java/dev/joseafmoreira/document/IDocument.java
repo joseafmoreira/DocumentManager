@@ -5,7 +5,7 @@ package dev.joseafmoreira.document;
  * IDocument
  * </h2>
  * <p>
- * The interface <code>IDocument</code> that specifies the behavior of a document.
+ * The <code>IDocument</code> interface that specifies the behavior of a document.
  * </p>
  * <p>
  * Author: ESTG-FPOO-2122
@@ -52,14 +52,14 @@ public interface IDocument {
      *
      * @return this document's type
      */
-    DocumentType getDocumentType();
+    DocumentType getType();
 
     /**
      * Sets the document type of this document.
      *
-     * @param documentType the document type to be set
+     * @param type the document type to be set
      */
-    void setDocumentType(DocumentType documentType);
+    void setType(DocumentType type);
 
     /**
      * Returns the file size in megabytes.

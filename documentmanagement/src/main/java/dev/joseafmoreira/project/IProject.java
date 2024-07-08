@@ -11,7 +11,7 @@ import dev.joseafmoreira.document.DocumentType;
  * IProject
  * </h2>
  * <p>
- * The interface <code>IProject</code> that specifies the available operations of this data structure used to store {@link IDocument documents}
+ * The <code>IProject</code> interface that specifies the available operations of this data structure used to store {@link IDocument documents}
  * </p>
  * <p>
  * Author: ESTG-FPOO-2122
