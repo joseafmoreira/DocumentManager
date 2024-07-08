@@ -12,11 +12,38 @@ package dev.joseafmoreira.document;
  * </p>
  */
 public class Document implements IDocument {
+    /**
+     * The total number of created documents incremented every time a new document is instantiated
+     */
     private static int NUMBER_DOCUMENTS = 0;
-    private final int id, version, fileSizeMb;
-    private final String filename, fileExtension;
+    /**
+     * This document's id is defined using the total number of created documents
+     */
+    private final int id;
+    /**
+     * This document's title is specified in the constructor
+     */
     private String title;
+    /**
+     * This document's version is specified in the constructor
+     */
+    private final int version;
+    /**
+     * This document's file name is specified in the constructor
+     */
+    private final String filename;
+    /**
+     * This document's type is specified in the constructor
+     */
     private DocumentType type;
+    /**
+     * This document's file size in MB is specified in the constructor
+     */
+    private final int fileSizeMb;
+    /**
+     * This document's file extension is specified in the constructor
+     */
+    private final String fileExtension;
 
     /**
      * Instantiate a new document object
