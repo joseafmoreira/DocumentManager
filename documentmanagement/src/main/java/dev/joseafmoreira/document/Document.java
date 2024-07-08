@@ -1,5 +1,7 @@
 package dev.joseafmoreira.document;
 
+import java.lang.annotation.Inherited;
+
 /**
  * <h2>
  * Document
@@ -17,7 +19,7 @@ public class Document implements IDocument {
      */
     private static int NUMBER_DOCUMENTS = 0;
     /**
-     * This document's id is defined using the total number of created documents
+     * This document's id is defined using the {@link #NUMBER_DOCUMENTS total number of created documents}
      */
     private final int id;
     /**
@@ -65,46 +67,73 @@ public class Document implements IDocument {
         this.fileExtension = fileExtension;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getId() {
         return id;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getTitle() {
         return title;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setTitle(String title) {
         this.title = title;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getVersion() {
         return version;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getFilename() {
         return filename;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public DocumentType getType() {
         return type;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void setType(DocumentType type) {
         this.type = type;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int getFileSizeMb() {
         return fileSizeMb;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public String getFileExtension() {
         return fileExtension;
