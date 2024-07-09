@@ -54,8 +54,12 @@ public class Document implements IDocument {
      * @param type the type of this document
      * @param fileSizeMb the file size in MB of this document
      * @param fileExtension the file extension of this document
+     * @throws NullPointerException if the filename or fileExtension is null
      */
-    public Document(String title, int version, String filename, DocumentType type, int fileSizeMb, String fileExtension) {
+    public Document(String title, int version, String filename, DocumentType type, int fileSizeMb, String fileExtension) throws NullPointerException {
+        if (filename == null) throw new NullPointerException("File name can't be null");
+        if (fileExtension == null) throw new NullPointerException("File extension can't be null");
+
         id = ++NUMBER_DOCUMENTS;
         setTitle(title);
         this.version = version;

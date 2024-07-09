@@ -74,4 +74,31 @@ public interface IDocument {
      * @return the file extension of this document
      */
     String getFileExtension();
+
+    /**
+     * Returns a hash code value for this document. This method is used by the Java
+     * hashing algorithms when storing objects in hash-based data structures such
+     * as HashMap.
+     *
+     * @return the hash code value for this document.
+     */
+    @Override int hashCode();
+
+    /**
+     * Compares this document with the specified object for equality.
+     * Returns true if the given object is also a Document and has the same
+     * id, version, fileSizeMb, filename, fileExtension, title, and type as this document.
+     *
+     * @param obj the object to compare with this document
+     * @return true if the given object is equal to this document, false otherwise
+     */
+    @Override boolean equals(Object obj);
+
+    /**
+     * Returns a string representation of this document.
+     * 
+     * @return A string representation of this document, including its id, version, fileSizeMb, filename,
+     *         fileExtension, title, and type.
+     */
+    @Override String toString();
 }
