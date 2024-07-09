@@ -94,4 +94,30 @@ public interface IProject {
      * Clear all documents from this project
      */
     void clear();
+
+    /**
+     * Returns a hash code value for this project. This method is used by the Java
+     * hashing algorithms when storing objects in hash-based data structures such
+     * as HashMap.
+     *
+     * @return the hash code value for this project.
+     */
+    @Override int hashCode();
+
+    /**
+     * Compares this project with the specified object for equality.
+     * Returns true if the given object is also a project and has the same
+     * documents and size as this project.
+     *
+     * @param obj the object to compare with this project
+     * @return true if the given object is equal to this project, false otherwise
+     */
+    @Override boolean equals(Object obj);
+
+    /**
+     * Returns a string representation of this project.
+     * 
+     * @return A string representation of this project, including its documents and size.
+     */
+    @Override String toString();
 }

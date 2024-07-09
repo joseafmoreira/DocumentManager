@@ -57,10 +57,11 @@ public class Project implements IProject {
         if (size == documents.length) expandCapacity();
         if (document.getFileSizeMb() > 2) throw new InvalidDocumentException("Document can't have more than 2 MB");
         if (!document.getFileExtension().equals("pdf")) throw new InvalidDocumentException("Document file extension needs to be pdf");
-        for (int i = 0; i < size; i++) 
+        for (int i = 0; i < size; i++) {
             if (documents[i].getId() == document.getId() && 
-                documents[i].getVersion() >= document.getVersion()) 
+                documents[i].getVersion() >= document.getVersion())
                     throw new InvalidDocumentException("There's already a newer or equal version of this document in this project");
+        }
 
         documents[size++] = document;
     }
@@ -70,7 +71,7 @@ public class Project implements IProject {
      */
     @Override
     public int removeOldVersions() {
-        return 0;
+        throw new UnsupportedOperationException("Remove old version not implemented");
     }
 
     /**
@@ -79,6 +80,17 @@ public class Project implements IProject {
     @Override
     public void remove(IDocument document) throws NullPointerException, DocumentNotFoundException {
         if (document == null) throw new NullPointerException("Document is null");
+
+        for (int i = 0; i < size; i++) {
+            if (documents[i].equals(document)) {
+                for (int j = i; j < (size - 1); j++) documents[j] = documents[j + 1];
+                documents[--size] = null;
+
+                return;
+            }
+        }   
+
+        throw new DocumentNotFoundException();
     }
 
     /**
@@ -103,7 +115,17 @@ public class Project implements IProject {
     public IDocument[] getDocumentsByType(DocumentType type) throws NullPointerException {
         if (type == null) throw new NullPointerException("Type is null");
 
-        return null;
+        IDocument[] tempArray = new IDocument[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            if (documents[i].getType().equals(type)) {
+                tempArray[count++] = documents[i];
+            }
+        }
+        IDocument[] result = new IDocument[count];
+        for (int i = 0; i < count; i++) result[i] = tempArray[i];
+
+        return result;
     }
 
     /**
@@ -111,7 +133,10 @@ public class Project implements IProject {
      */
     @Override
     public IDocument[] toArray() {
-        return null;
+        IDocument[] resultDocuments = new IDocument[size];
+        for (int i = 0; i < size; i++) resultDocuments[i] = documents[i];
+
+        return resultDocuments;
     }
     
     /**
@@ -150,14 +175,50 @@ public class Project implements IProject {
     }
 
     /**
+     * {@inheritDoc}
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        for (int i = 0; i < size; i++) result = prime * result + documents[i].hashCode();
+        result = prime * result + size;
+
+        return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Project otherProject = (Project) obj;
+        if (size != otherProject.size) return false;
+        for (int i = 0; i < size; i++) if (!documents[i].equals(otherProject.documents[i])) return false;
+        
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder("(" + size() + ")[");
+        for (int i = 0; i < size; i++) result.append(documents[i]).append((i == size - 1) ? "" : ", ");
+        result.append("]");
+
+        return result.toString();
+    }
+
+    /**
      * Expands the capacity of the documents array
      */
     private void expandCapacity() {
         IDocument[] newDocuments = new IDocument[documents.length + (documents.length / 2)];
-        for (int i = 0; i < documents.length; i++) {
-            newDocuments[i] = documents[i];
-        }
-
+        for (int i = 0; i < size; i++) newDocuments[i] = documents[i];
         documents = newDocuments;
     }
 }
