@@ -71,7 +71,28 @@ public class Project implements IProject {
      */
     @Override
     public int removeOldVersions() {
-        throw new UnsupportedOperationException("Remove old version not implemented");
+        boolean[] latestDocuments = new boolean[size];
+        for (int i = 0; i < size; i++) {
+            latestDocuments[i] = true;
+            for (int j = 0; j < size; j++) {
+                if (i != j && documents[i].getId() == documents[j].getId() && documents[i].getVersion() < documents[j].getVersion()) {
+                    latestDocuments[i] = false;
+                    break;
+                }
+            }
+        }
+        IDocument[] newDocuments = new IDocument[documents.length];
+        int newSize = 0, removedVersions;
+        for (int i = 0; i < size; i++) {
+            if (latestDocuments[i]) {
+                newDocuments[newSize++] = documents[i];
+            }
+        }
+        documents = newDocuments;
+        removedVersions = size - newSize;
+        size = newSize;
+
+        return removedVersions;
     }
 
     /**
@@ -172,6 +193,7 @@ public class Project implements IProject {
     @Override
     public void clear() {
         documents = new IDocument[DEFAULT_CAPACITY];
+        size = 0;
     }
 
     /**

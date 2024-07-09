@@ -13,11 +13,7 @@ package dev.joseafmoreira.document;
  */
 public class Document implements IDocument {
     /**
-     * The total number of created documents incremented every time a new document is instantiated
-     */
-    private static int NUMBER_DOCUMENTS = 0;
-    /**
-     * This document's id is defined using the {@link #NUMBER_DOCUMENTS total number of created documents}
+     * This document's id is specified in the constructor
      */
     private final int id;
     /**
@@ -48,6 +44,7 @@ public class Document implements IDocument {
     /**
      * Instantiate a new document object
      * 
+     * @param id the id of this document
      * @param title the title of this document
      * @param version the version of this document
      * @param filename the file name of this document
@@ -56,11 +53,11 @@ public class Document implements IDocument {
      * @param fileExtension the file extension of this document
      * @throws NullPointerException if the filename or fileExtension is null
      */
-    public Document(String title, int version, String filename, DocumentType type, int fileSizeMb, String fileExtension) throws NullPointerException {
+    public Document(int id, String title, int version, String filename, DocumentType type, int fileSizeMb, String fileExtension) throws NullPointerException {
         if (filename == null) throw new NullPointerException("File name can't be null");
         if (fileExtension == null) throw new NullPointerException("File extension can't be null");
 
-        id = ++NUMBER_DOCUMENTS;
+        this.id = id;
         setTitle(title);
         this.version = version;
         this.filename = filename;
@@ -142,11 +139,7 @@ public class Document implements IDocument {
     }
 
     /**
-     * Returns a hash code value for this document. This method is used by the Java
-     * hashing algorithms when storing objects in hash-based data structures such
-     * as HashMap.
-     *
-     * @return the hash code value for this document.
+     * {@inheritDoc}
      */
     @Override
     public int hashCode() {
@@ -163,12 +156,7 @@ public class Document implements IDocument {
     }
 
     /**
-     * Compares this document with the specified object for equality.
-     * Returns true if the given object is also a Document and has the same
-     * id, version, fileSizeMb, filename, fileExtension, title, and type as this document.
-     *
-     * @param obj the object to compare with this document
-     * @return true if the given object is equal to this document, false otherwise
+     * {@inheritDoc}
      */
     @Override
     public boolean equals(Object obj) {
@@ -192,10 +180,7 @@ public class Document implements IDocument {
     }
 
     /**
-     * Returns a string representation of this document.
-     * 
-     * @return A string representation of this document, including its id, version, fileSizeMb, filename,
-     *         fileExtension, title, and type.
+     * {@inheritDoc}
      */
     @Override
     public String toString() {
