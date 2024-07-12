@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class DocumentTypeTest {
     /**
      * Test case for the {@link DocumentType#MACHINE} enum value.
-     * It verifies that the {@link DocumentType#toString()} method returns the expected value.
+     * It verifies that the {@link DocumentType#toString() toString()} method returns the expected value.
      */
     @Test
     public void testMachine() {
@@ -26,7 +26,7 @@ public class DocumentTypeTest {
 
     /**
      * Test case for the {@link DocumentType#WORKER} enum value.
-     * It verifies that the {@link DocumentType#toString()} method returns the expected value.
+     * It verifies that the {@link DocumentType#toString() toString()} method returns the expected value.
      */
     @Test
     public void testWorker() {
@@ -35,7 +35,7 @@ public class DocumentTypeTest {
 
     /**
      * Test case for the {@link DocumentType#INFRASTRUCTURE} enum value.
-     * It verifies that the {@link DocumentType#toString()} method returns the expected value.
+     * It verifies that the {@link DocumentType#toString() toString()} method returns the expected value.
      */
     @Test
     public void testInfrastructure() {

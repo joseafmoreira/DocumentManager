@@ -1,6 +1,7 @@
 package dev.joseafmoreira.api.document;
 
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -18,7 +19,7 @@ import org.junit.Before;
  */
 public class DocumentTest {
     /**
-     * Document object that will be used as a testing subject.
+     * Document object that will be used for testing purposes.
      */
     private Document document1, document2, document3;
 
@@ -33,7 +34,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify that a NullPointerException is thrown when creating a Document without a filename.
+     * Test case to verify that a {@link NullPointerException} is thrown when creating a Document without a filename.
      */
     @Test(expected = NullPointerException.class)
     public void testDocumentWithoutFilename1() {
@@ -41,7 +42,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify that a NullPointerException is thrown when creating a Document with an invalid filename.
+     * Test case to verify that a {@link NullPointerException} is thrown when creating a Document with an invalid filename.
      */
     @Test(expected = NullPointerException.class)
     public void testDocumentWithoutFilename2() {
@@ -49,7 +50,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify that a NullPointerException is thrown when creating a Document without a fileExtension.
+     * Test case to verify that a {@link NullPointerException} is thrown when creating a Document without a fileExtension.
      */
     @Test(expected = NullPointerException.class)
     public void testDocumentWithoutFileExtension1() {
@@ -57,7 +58,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify that a NullPointerException is thrown when creating a Document with an invalid fileExtension.
+     * Test case to verify that a {@link NullPointerException} is thrown when creating a Document with an invalid fileExtension.
      */
     @Test(expected = NullPointerException.class)
     public void testDocumentWithoutFileExtension2() {
@@ -65,7 +66,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify the correctness of the hashCode() method.
+     * Test case to verify the correctness of the {@link Document#hashCode() hashCode()} method.
      * It asserts that the hash codes of document1 and document3 are equal.
      */
     @Test
@@ -74,7 +75,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify the correctness of the hashCode() method.
+     * Test case to verify the correctness of the {@link Document#hashCode() hashCode()} method.
      * It asserts that the hash codes of document1 and document2 aren't equal.
      */
     @Test
@@ -83,7 +84,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify the correctness of the equals() method.
+     * Test case to verify the correctness of the {@link Document#equals() equals()} method.
      * It asserts that the hash codes of document1 and document3 are equal.
      */
     @Test
@@ -92,7 +93,7 @@ public class DocumentTest {
     }
 
     /**
-     * Test case to verify the correctness of the equals() method.
+     * Test case to verify the correctness of the {@link Document#equals() equals()} method.
      * It asserts that the hash codes of document1 and document2 aren't equal.
      */
     @Test
@@ -101,8 +102,8 @@ public class DocumentTest {
     }
 
     /**
-     * Test case for the toString method of the Document class.
-     * It verifies that the toString method returns the expected string representation of the Document object.
+     * Test case for the {@link Document#toString() toString()} method of the Document class.
+     * It verifies that the {@link Document#toString() toString()} method returns the expected string representation of the Document object.
      */
     @Test
     public void testToString() {
