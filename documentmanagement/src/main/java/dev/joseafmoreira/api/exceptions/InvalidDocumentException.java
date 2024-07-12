@@ -1,4 +1,4 @@
-package dev.joseafmoreira.exceptions;
+package dev.joseafmoreira.api.exceptions;
 
 /**
  * <h2>

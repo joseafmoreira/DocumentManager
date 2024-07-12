@@ -1,4 +1,4 @@
-package dev.joseafmoreira.document;
+package dev.joseafmoreira.api.document;
 
 /**
  * <h2>

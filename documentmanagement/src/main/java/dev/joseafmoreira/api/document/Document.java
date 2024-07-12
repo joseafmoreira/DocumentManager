@@ -1,4 +1,4 @@
-package dev.joseafmoreira.document;
+package dev.joseafmoreira.api.document;
 
 /**
  * <h2>
@@ -54,8 +54,8 @@ public class Document implements IDocument {
      * @throws NullPointerException if the filename or fileExtension is null
      */
     public Document(int id, String title, int version, String filename, DocumentType type, int fileSizeMb, String fileExtension) throws NullPointerException {
-        if (filename == null) throw new NullPointerException("File name can't be null");
-        if (fileExtension == null) throw new NullPointerException("File extension can't be null");
+        if (filename == null || filename.trim().equals("")) throw new NullPointerException("File name can't be null");
+        if (fileExtension == null || fileExtension.trim().equals("")) throw new NullPointerException("File extension can't be null");
 
         this.id = id;
         setTitle(title);

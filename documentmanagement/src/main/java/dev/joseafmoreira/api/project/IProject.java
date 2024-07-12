@@ -1,10 +1,9 @@
-package dev.joseafmoreira.project;
+package dev.joseafmoreira.api.project;
 
-import dev.joseafmoreira.document.IDocument;
-import dev.joseafmoreira.exceptions.DocumentNotFoundException;
-import dev.joseafmoreira.exceptions.InvalidDocumentException;
-
-import dev.joseafmoreira.document.DocumentType;
+import dev.joseafmoreira.api.document.DocumentType;
+import dev.joseafmoreira.api.document.IDocument;
+import dev.joseafmoreira.api.exceptions.DocumentNotFoundException;
+import dev.joseafmoreira.api.exceptions.InvalidDocumentException;
 
 /**
  * <h2>
