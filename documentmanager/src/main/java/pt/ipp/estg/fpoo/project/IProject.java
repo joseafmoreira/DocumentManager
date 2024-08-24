@@ -1,63 +1,80 @@
-package dev.joseafmoreira.api.project;
+package pt.ipp.estg.fpoo.project;
 
-import dev.joseafmoreira.api.document.DocumentType;
-import dev.joseafmoreira.api.document.IDocument;
-import dev.joseafmoreira.api.exceptions.DocumentNotFoundException;
-import dev.joseafmoreira.api.exceptions.InvalidDocumentException;
+import pt.ipp.estg.fpoo.document.DocumentType;
+import pt.ipp.estg.fpoo.document.IDocument;
 
 /**
- * <h2>
- * IProject
- * </h2>
- * <p>
- * The <code>IProject</code> interface that specifies the available operations of this data structure used to store {@link IDocument documents}
- * </p>
- * <p>
- * Author: ESTG-FPOO-2122
- * </p>
+ * A project represents a collection of documents. <p>
+ * 
+ * The expected operations for a project include: <p>
+ * <ul>
+ *  <li>{@link #add(IDocument)}: Adds a document to this project</li>
+ *  <li>{@link #removeOldVersions()}: Remove all versions of a document except the most recent version</li>
+ *  <li>{@link #remove(IDocument)}: Removes a document from this project</li>
+ *  <li>{@link #get(int)}: Retrieves the latest version of a document with the specified ID</li>
+ *  <li>{@link #getDocumentsByType(DocumentType)}: Obtain all documents in this project of a certain type</li>
+ *  <li>{@link #toArray()}: Returns an array containing all the documents in this project</li>
+ *  <li>{@link #contains(IDocument)}: Checks if this project contains the specified document</li>
+ *  <li>{@link #isEmpty()}: Checks if this project is empty</li>
+ *  <li>{@link #size()}: Returns the size of this project</li>
+ *  <li>{@link #clear()}: Clear all documents from this project</li>
+ *  <li>
+ *      {@link #hashCode()}: Returns a hash code value for this project. This method is used by the Java
+        hashing algorithms when storing objects in hash-based data structures such
+        as HashMap
+ *  </li>
+ *  <li>
+ *      {@link #equals(Object)}: Compares this project with the specified object for equality.
+        Returns true if the given object is also a project and has the same
+        documents and size as this project
+    </li>
+ *  <li>{@link #toString()}: Returns a string representation of this project</li>
+ * </ul>
+ * 
+ * <h3>IProject</h3>
+ * @since 1.0
+ * @version 1.0
+ * @author ESTG-FPOO
+ * @see IDocument
+ * @see DocumentType
  */
 public interface IProject {
     /**
      * Adds a document to this project.
+     * 
      * @param document the document to be added
-     * @throws NullPointerException if the specified document is null.
-     * @throws InvalidDocumentException if the {@link IDocument document} 
-     *                                  has a file extension different from <code>pdf</code>, 
-     *                                  file size greater than 2 MB or 
-     *                                  a version lower than the one added in this project identified by its id.
      */
-    void add(IDocument document) throws NullPointerException, InvalidDocumentException;
+    void add(IDocument document);
 
     /**
      * Remove all versions of a document except the most recent version.
+     * 
      * @return the number of removed documents
      */
     int removeOldVersions();
 
     /**
      * Removes a document from this project.
+     * 
      * @param document the document to be removed
-     * @throws NullPointerException if the specified document is null.
-     * @throws DocumentNotFoundException if the {@link IDocument document} doesn't exist in this project
      */
-    void remove(IDocument document) throws NullPointerException, DocumentNotFoundException;
+    void remove(IDocument document);
 
     /**
      * Retrieves the latest version of a document with the specified ID.
      *
      * @param id the ID of the document to retrieve
      * @return the latest version of a document with the specified ID
-     * @throws DocumentNotFoundException if the {@link IDocument document} doesn't exist in this project
      */
-    IDocument get(int id) throws DocumentNotFoundException;
+    IDocument get(int id);
 
     /**
-     * Obtain the documents of a certain {@link DocumentType type}
+     * Obtain all documents in this project of a certain type.
+     * 
      * @param type the document type
      * @return an array of documents with the specified type
-     * @throws NullPointerException if the specified type is null.
      */
-    IDocument[] getDocumentsByType(DocumentType type) throws NullPointerException;
+    IDocument[] getDocumentsByType(DocumentType type);
 
     /**
      * Returns an array containing all the documents in this project.
@@ -73,7 +90,7 @@ public interface IProject {
      * @return true if this project contains the document, false otherwise
      * @throws NullPointerException if the specified document is null.
      */
-    boolean contains(IDocument document) throws NullPointerException;
+    boolean contains(IDocument document);
 
     /**
      * Checks if this project is empty.
@@ -90,7 +107,7 @@ public interface IProject {
     int size();
 
     /**
-     * Clear all documents from this project
+     * Clear all documents from this project.
      */
     void clear();
 
@@ -116,7 +133,7 @@ public interface IProject {
     /**
      * Returns a string representation of this project.
      * 
-     * @return A string representation of this project, including its documents and size.
+     * @return a string representation of this project
      */
     @Override String toString();
 }

@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>dev.joseafmoreira</groupId>
-  <artifactId>documentmanagement</artifactId>
+  <artifactId>documentmanager</artifactId>
   <version>1.0</version>
 
-  <name>documentmanagement</name>
+  <name>documentmanager</name>
   <!-- FIXME change it to the project's website -->
-  <!-- <url>http://www.example.com</url> -->
+  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,14 +18,15 @@
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
-
   <dependencies>
+  <!--
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13.2</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
+  -->
   </dependencies>
 
   <build>

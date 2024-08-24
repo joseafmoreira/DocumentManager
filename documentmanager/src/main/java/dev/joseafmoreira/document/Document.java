@@ -1,66 +1,64 @@
-package dev.joseafmoreira.api.document;
+package dev.joseafmoreira.document;
+
+import pt.ipp.estg.fpoo.document.DocumentType;
+import pt.ipp.estg.fpoo.document.IDocument;
 
 /**
- * <h2>
- * Document
- * </h2>
- * <p>
- * The <code>Document</code> class that implements the {@link IDocument IDocument} interface.
- * </p>
- * <p>
- * Author: joseafmoreira
- * </p>
+ * Concrete implementation of the {@code IDocument} interface.
+ * 
+ * <h3>Document</h3>
+ * @since 1.0
+ * @version 1.0
+ * @author joseafmoreira
+ * @see IDocument
  */
 public class Document implements IDocument {
     /**
-     * This document's id is specified in the constructor
+     * This document's id
      */
     private final int id;
     /**
-     * This document's title is specified in the constructor
+     * This document's title
      */
     private String title;
     /**
-     * This document's version is specified in the constructor
+     * This document's version
      */
     private final int version;
     /**
-     * This document's file name is specified in the constructor
+     * This document's file name
      */
-    private final String filename;
+    private final String fileName;
     /**
-     * This document's type is specified in the constructor
+     * This document's type
      */
     private DocumentType type;
     /**
-     * This document's file size in MB is specified in the constructor
+     * This document's file size in MB
      */
     private final int fileSizeMb;
     /**
-     * This document's file extension is specified in the constructor
+     * This document's file extension
      */
     private final String fileExtension;
 
     /**
-     * Instantiate a new document object
+     * Constructs a document with an id, title, version, fileName, 
+     * type, fileSizeMb and fileExtension.
      * 
      * @param id the id of this document
      * @param title the title of this document
      * @param version the version of this document
-     * @param filename the file name of this document
+     * @param fileName the file name of this document
      * @param type the type of this document
      * @param fileSizeMb the file size in MB of this document
      * @param fileExtension the file extension of this document
-     * @throws NullPointerException if the filename or fileExtension is null
      */
-    public Document(int id, String title, int version, String filename, DocumentType type, int fileSizeMb, String fileExtension) throws NullPointerException {
-        if (filename == null || filename.trim().equals("")) throw new NullPointerException("File name can't be null");
-        if (fileExtension == null || fileExtension.trim().equals("")) throw new NullPointerException("File extension can't be null");
-
+    public Document(int id, String title, int version, String fileName, DocumentType type, int fileSizeMb, String fileExtension) {
         this.id = id;
         setTitle(title);
         this.version = version;
-        this.filename = filename;
+        this.fileName = fileName;
         setType(type);
         this.fileSizeMb = fileSizeMb;
         this.fileExtension = fileExtension;
@@ -102,8 +100,8 @@ public class Document implements IDocument {
      * {@inheritDoc}
      */
     @Override
-    public String getFilename() {
-        return filename;
+    public String getFileName() {
+        return fileName;
     }
 
     /**
@@ -148,7 +146,7 @@ public class Document implements IDocument {
         result = prime * result + id;
         result = prime * result + version;
         result = prime * result + fileSizeMb;
-        result = prime * result + ((filename == null) ? 0 : filename.hashCode());
+        result = prime * result + ((fileName == null) ? 0 : fileName.hashCode());
         result = prime * result + ((fileExtension == null) ? 0 : fileExtension.hashCode());
         result = prime * result + ((title == null) ? 0 : title.hashCode());
         result = prime * result + ((type == null) ? 0 : type.hashCode());
@@ -167,8 +165,8 @@ public class Document implements IDocument {
         if (id != otherDocument.id) return false;
         if (version != otherDocument.version) return false;
         if (fileSizeMb != otherDocument.fileSizeMb) return false;
-        if (filename == null) if (otherDocument.filename != null) return false;
-        else if (!filename.equals(otherDocument.filename)) return false;
+        if (fileName == null) if (otherDocument.fileName != null) return false;
+        else if (!fileName.equals(otherDocument.fileName)) return false;
         if (fileExtension == null) if (otherDocument.fileExtension != null) return false;
         else if (!fileExtension.equals(otherDocument.fileExtension)) return false;
         if (title == null) if (otherDocument.title != null) return false;
@@ -184,7 +182,7 @@ public class Document implements IDocument {
      */
     @Override
     public String toString() {
-        return "Document [id=" + id + ", version=" + version + ", fileSizeMb=" + fileSizeMb + ", filename=" + filename
+        return "Document [id=" + id + ", version=" + version + ", fileSizeMb=" + fileSizeMb + ", filename=" + fileName
                 + ", fileExtension=" + fileExtension + ", title=" + title + ", type=" + type + "]";
     }
 }

@@ -2,11 +2,11 @@ package dev.joseafmoreira;
 
 import java.util.Arrays;
 
-import dev.joseafmoreira.api.document.Document;
-import dev.joseafmoreira.api.document.DocumentType;
-import dev.joseafmoreira.api.document.IDocument;
-import dev.joseafmoreira.api.project.IProject;
-import dev.joseafmoreira.api.project.Project;
+import dev.joseafmoreira.document.Document;
+import dev.joseafmoreira.project.Project;
+import pt.ipp.estg.fpoo.document.DocumentType;
+import pt.ipp.estg.fpoo.document.IDocument;
+import pt.ipp.estg.fpoo.project.IProject;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,15 +1,18 @@
-package dev.joseafmoreira.api.document;
+package pt.ipp.estg.fpoo.document;
 
 /**
- * <h2>
- * DocumentType
- * </h2>
- * <p>
- * The <code>DocumentType</code> enum that represents the available document types.
- * </p>
- * <p>
- * Author: ESTG-FPOO-2122
- * </p>
+ * This enumerates the possible options for a document type. <p>
+ * 
+ * The available operations are: <p>
+ * <ul>
+ *  <li>{@link #toString()}: Returns a string representation of this document type</li>
+ * </ul>
+ * 
+ * <h3>DocumentType</h3>
+ * @since 1.0
+ * @version 1.0
+ * @author ESTG-FPOO
+ * @see IDocument
  */
 public enum DocumentType {
     /**
@@ -26,9 +29,9 @@ public enum DocumentType {
     INFRASTRUCTURE;
 
     /**
-     * Returns a string representation of the document type.
+     * Returns a string representation of this document type.
      *
-     * @return The string representation of the document type.
+     * @return a string representation of this document type.
      */
     @Override
     public String toString() {
