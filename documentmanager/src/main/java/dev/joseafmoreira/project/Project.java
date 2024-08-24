@@ -270,7 +270,6 @@ public class Project implements IProject {
      * Otherwise, a new array with a capacity increased by half of the current array's length is created.
      * The elements from the current array are copied to the new array.
      */
-    @SuppressWarnings("unchecked")
     protected void expandCapacity() {
         IDocument[] newArray = new IDocument[(array.length < 2) ? array.length + 1 : array.length + (array.length / 2)];
         for (int i = 0; i < size(); i++) newArray[i] = array[i];
