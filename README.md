@@ -1,6 +1,6 @@
 # Document Manager
-This project consists in building a document manager API using Java for a construction company.
-The company needs to be able to create and manipulate documents and projects which is a collection of documents.
+This project consists in building a document manager API using Java for a construction company.\
+The company needs to be able to create and manipulate documents and projects which is a collection of documents.\
 Every document has this list of available attributes:
     - ID
     - Title
@@ -8,7 +8,7 @@ Every document has this list of available attributes:
     - File name
     - Type
     - File size in MB
-    - File extension
+    - File extension\
 Considering the previous list of attributes, a document can be added to a project if the following criteria is true:
     - The file size cannot exceed 2 MB
     - The file extension needs to be pdf
